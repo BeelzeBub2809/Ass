@@ -31,7 +31,7 @@
                         <a href="#home">home</a>
                         <a href="#shop" id="showAlert">shop</a>
                         <a href="#services">services</a>
-                        <a href="plan.jsp">plan</a>
+                        <a href="#plan">plan</a>
                         <a href="#contact">contact</a>
                     </nav>
 
@@ -69,114 +69,7 @@
 
         <!-- home section starts  -->
 
-        <section class="home" id="home">
-
-            <div class="content">
-                <h3> <span>hi</span> welcome to my pet shop </h3>
-
-            </div>
-
-            <img src="assets/image/bottom_wave.png" class="wave" alt="">
-
-        </section>
-
-        <!-- home section ends -->
-
-        <!-- about section starts  -->
-
-        <section class="about" id="about">
-
-            <div class="image">
-                <img src="assets/image/about_img.png" alt="">
-            </div>
-
-            <div class="content">
-                <h3>premium <span>pet food</span> manufacturer</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum sint, dolore perspiciatis iure consequuntur eligendi quaerat vitae shaikh anas.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-        </section>
-
-        <!-- about section ends -->
-
-        <!-- dog and cat food banner section starts -->
-
-        <div class="dog-food">
-
-            <div class="image">
-                <img src="assets/image/dog_food.png" alt="">
-            </div>
-
-            <div class="content">
-                <h3> <span>air dried</span> dog food </h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat iure illo, repudiandae rem porro sunt.</p>
-                <div class="amount">$15.00 - $30.00</div>
-            </div>
-
-        </div>
-
-        <div class="cat-food">
-
-            <div class="content">
-                <h3> <span>air dried</span> cat food </h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat iure illo, repudiandae rem porro sunt.</p>
-                <div class="amount">$15.00 - $30.00</div>
-            </div>
-
-            <div class="image">
-                <img src="assets/image/cat_food.png" alt="">
-            </div>
-
-        </div>
-
-        <!-- dog and cat food banner section ends -->
-
-       
-        <!-- services section starts  -->
-
-        <section class="services" id="services">
-
-            <h1 class="heading"> our <span>services</span> </h1>
-
-            <div class="box-container">
-
-                <div class="box">
-                    <i class="fas fa-dog"></i>
-                    <h3>dog boarding</h3>
-                </div>
-
-                <div class="box">
-                    <i class="fas fa-cat"></i>
-                    <h3>cat boarding</h3>
-                </div>
-
-                <div class="box">
-                    <i class="fas fa-bath"></i>
-                    <h3>spa & grooming</h3>
-                </div>
-
-                <div class="box">
-                    <i class="fas fa-drumstick-bite"></i>
-                    <h3>healthy meal</h3>
-                </div>
-
-                <div class="box">
-                    <i class="fas fa-baseball-ball"></i>
-                    <h3>activity exercise</h3>
-                </div>
-
-                <div class="box">
-                    <i class="fas fa-heartbeat"></i>
-                    <h3>health care</h3>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- services section ends -->
-
+ 
         <!-- plan section starts  -->
 
         <section class="plan" id="plan">

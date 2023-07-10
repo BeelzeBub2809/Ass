@@ -33,10 +33,9 @@
 
             <nav class="navbar">
                 <a href="${pageContext.request.contextPath}/login">home</a>
-                <a href="#about">about</a>
                 <a href="${pageContext.request.contextPath}/loadProd">shop</a>
                 <a href="#services">services</a>
-                <a href="#plan">plan</a>
+                <a href="plan.jsp">plan</a>
                 <a href="#contact">contact</a>
             </nav>
 
