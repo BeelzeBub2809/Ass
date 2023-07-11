@@ -15,32 +15,24 @@
         <h1 style="text-align: center;">Check Out</h1>
         <div class="form-section-box">
 
-            <form class="checkout-form" method="post" action="">
+            <form class="checkout-form" method="POST" action="${pageContext.request.contextPath}/checkout">
                 <div class="form-group row">
                     <label class="col-md-4 label-md">Số điện thoại*</label>
                     <div class="col-md-8">
                         <input type="text" class="form-control" placeholder="phone" name="phone">
                     </div>
                 </div>
-                <div class="col-md-10">
-                    <input type="hidden" value=""class="form-control" placeholder="Name" name="userID">
-                </div>
                 <div class="form-group row">
                     <label class="col-md-4 label-md">Họ tên</label>
                     <div class="col-md-8">
-                        <input type="text" value=""class="form-control" placeholder="Name" name="username">
+                        <input type="text" value=""class="form-control" placeholder="Name" name="name">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-md-4 label-md">Email</label>
-                    <div class="col-md-8">
-                        <input type="email" class="form-control" placeholder="Email" name="email">
-                    </div>
-                </div>
+
                 <div class="form-group row">
                     <label class="col-md-4 label-md">Địa chỉ nhận hàng</label>
                     <div class="col-md-8">
-                        <textarea class="form-control" placeholder="Adress" name="adress"></textarea>
+                        <textarea class="form-control" placeholder="Address" name="address"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -51,10 +43,10 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <input type="submit" class="btn btn-info form-control" value="Trở lại">
+                        <input type="" class="btn btn-info form-control" value="Trở lại">
                     </div>
                     <div class="col-md-6">
-                        <input type="submit" class="btn btn-success form-control" value="Thanh toán">
+                        <button type="submit" class="btn btn-success form-control">CheckOut</button>
                     </div>
                 </div>
 
@@ -62,67 +54,6 @@
         </div><!-- /form-section-box -->
 
 
-        <script>
-            $(document).on("click", ".del-order", (function () {
-                var idOrder = $(this).attr("idOrder");
-                //lấy dữ liêu
-                swal.fire({
-                    title: 'Bạn Có Chắc Chắn?',
-                    text: "Sản phẩm sẽ bị xóa khỏi giỏ hàng.!",
-                    icon: 'warning',
-                    padding: '3em',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Đồng Ý, Xóa!',
-                    cancelButtonText: 'Hủy bỏ',
-                    reverseButtons: true,
-                    customClass: null
-                }).then((result) => {
-                    if (result.value) {
-                        $.ajax({
-                            async: false,
-                            type: "post",
-                            url: "<%=request.getContextPath()%>/addtocart",
-                            data: {idOrder: idOrder},
-                            success: function (data) {
-                                if (data == false) {
-                                    Swal.fire(
-                                            'Thông Báo!',
-                                            'Bạn không thể xóa sản phẩm này này.',
-                                            'danger'
-                                            ).then(function () {
-                                        location.reload();
-                                    })
-                                } else {
-                                    Swal.fire(
-                                            'Thành công!',
-                                            'Bạn đã xóa thành công một sản phẩm.',
-                                            'success'
-                                            ).then(function () {
-                                        location.reload();
-                                    })
-                                }
-                            },
-                            error: function (xhr, ajaxOptions, thrownError) {
-                                Swal.fire(
-                                        'Thông Báo!',
-                                        'Thao tác không thể thực hiện.',
-                                        'danger'
-                                        ).then(function () {
-                                    location.reload();
-                                })
-                            }
-                        });
-                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                        swal.fire(
-                                'Thất bại',
-                                'Bạn Chưa thực hiện xóa',
-                                'error'
-                                )
-                    }
-                })
-            }))
-        </script>
+       
     </body>
 </html>

@@ -43,9 +43,9 @@
                                     <p>${requestScope.Prod.info}</p>
                                 </div>
                                 <h3>$${requestScope.Prod.price}</h3>
+                                <h3>Quantity In Stocks: ${requestScope.Prod.quantity}</h3>
 
-                                <div class="mt-5">
-
+                                <div class="mt-3">
                                 </div>
                                 <div class="buttons d-flex flex-row mt-5 gap-3"> <button class="btn btn-outline-dark">Buy
                                         Now</button> <a href="buy?id=${requestScope.Prod.getId()}" class="btn btn-dark">Add Cart</a> </div>

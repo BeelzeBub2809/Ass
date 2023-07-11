@@ -58,27 +58,33 @@
                             <tbody>
                                 <c:set var="cart" value="${requestScope.cart}"/>
                                 <c:forEach items="${cart.items}" var="i">
-                                <tr>
-                                    <td class="p-4">
-                                        <div class="media align-items-center">
-                                            <img src="${i.p.getImage()}" class="d-block ui-w-40 ui-bordered mr-4" alt>
-                                            <div class="media-body">
-                                                <a href="#" class="d-block text-dark">${i.p.getName()}</a>
-                                                <small>
-                                                    <span class="text-muted">Color:</span>
-                                                    <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
-                                                    <span class="text-muted">Size: </span> EU 37 &nbsp;
-                                                    <span class="text-muted">Ships from: </span> China
-                                                </small>
+                                    <tr>
+                                        <td class="p-4">
+                                            <div class="media align-items-center">
+                                                <img src="${i.p.getImage()}" class="d-block ui-w-40 ui-bordered mr-4" alt>
+                                                <div class="media-body">
+                                                    <a href="detail?pid=${i.p.getId()}" class="d-block text-dark">${i.p.getName()}</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right font-weight-semibold align-middle p-4">${i.p.getPrice()}</td>
-                                    <td class="align-middle p-4"><input type="text" class="form-control text-center" value="${i.getQuantity()}"></td>
-                                    <td class="text-right font-weight-semibold align-middle p-4">${i.p.getPrice()*i.getQuantity()}</td>
-                                    <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title data-original-title="Remove">×</a></td>
+                                        </td>
+                                        <td class="text-right font-weight-semibold align-middle p-4">${i.p.getPrice()}</td>
+                                        <td class="align-middle p-4">                           
+                                            <div class="col">
+                                                <style>
+                                                    a{
+                                                        color: black;
+                                                        padding: 0 1vh;
+                                                    }
+                                                </style>
+                                                <a href="process?num=-1&id=${i.p.getId()}">-</a><a class="border">${i.getQuantity()}</a><a href="process?num=1&id=${i.p.getId()}">+</a>
+                                            </div>
+                                        </td>
+                                        <td class="text-right font-weight-semibold align-middle p-4">${i.p.getPrice()*i.getQuantity()}</td>
+                                <form action="process?did=${i.p.getId()}" method="POST">
+                                    <td class="text-center align-middle px-0"><button type="submit" class="shop-tooltip close float-none text-danger" title data-original-title="Remove">×</button></td>
+                                </form>
                                 </tr>
-                                </c:forEach>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -90,16 +96,20 @@
                         </div>
                         <div class="d-flex">
                             <div class="text-right mt-4 mr-5">
+                                <label class="text-muted font-weight-normal m-0">Shipping</label>
+                                <div class="text-large"><strong>$2</strong></div>
                             </div>
                             <div class="text-right mt-4">
                                 <label class="text-muted font-weight-normal m-0">Total price</label>
-                                <div class="text-large"><strong>${cart.getTotalMoney()}</strong></div>
+                                <div class="text-large"><strong>${cart.getTotalMoney()+2}</strong></div>
                             </div>
                         </div>
                     </div>
                     <div class="float-right">
                         <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3"> <a href="loadProd">Back to shopping </a></button>
-                        <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
+                        <form action="checkout" method="GET">
+                            <button type="submit" class="btn btn-lg btn-primary mt-2">Checkout</button>
+                        </form>
                     </div>
                 </div>
             </div>
