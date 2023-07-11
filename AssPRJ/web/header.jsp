@@ -45,7 +45,7 @@
                         <img  src="assets/image/OIP.jpg" alt="User Picture" class="user-picture">
                         <span class="username">${sessionScope.AccSes.username}</span>
                     </div>
-                    <a href="#" class="fas fa-shopping-cart cart-icon"></a>
+                    <a href="cart" class="fas fa-shopping-cart cart-icon"></a>
                 </div>
 
                 <!-- User Dropdown Menu -->

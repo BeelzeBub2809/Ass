@@ -32,7 +32,7 @@
     <body>
 
         <!-- header section starts  -->
-        <%@include file="header.jsp" %> %>
+        <%@include file="header.jsp" %>
         <!-- header section ends -->
         <!-- <div class="prod"> -->
         <div class="sidenav">
@@ -49,8 +49,8 @@
                 <c:forEach items="${listP}" var="p">
                     <div class="box">
                         <div class="icons">
-                            <a href="#" class="fas fa-shopping-cart"></a>
-                            <a href="#" class="fas fa-eye"></a>
+                            <a href="buy?id=${p.getId()}" class="fas fa-shopping-cart"></a>
+                            <a href="detail?pid=${p.getId()}" class="fas fa-eye"></a>
                         </div>
                         <div class="image">
                             <img style="width:100%; border-style: inset;" src="${p.getImage()}" alt="">
