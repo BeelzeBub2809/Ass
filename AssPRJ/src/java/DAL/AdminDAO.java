@@ -25,7 +25,7 @@ public class AdminDAO {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public void insertProd(String name, String info, double price, String image, int category_id, int quantity) {
+    public void insertProd(String name, String info, double price, String image, int category_id, int quantity) throws Exception {
         String query = 
                  "INSERT INTO [dbo].[Product]\n"
                 + "           ([Name]\n"
@@ -40,10 +40,7 @@ public class AdminDAO {
                 + "           ,?\n"
                 + "           ,?\n"
                 + "           ,?\n"
-                + "           ,?)\n"
-                + "GO\n"
-                + "\n"
-                + "";
+                + "           ,?)\n";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -54,8 +51,8 @@ public class AdminDAO {
             ps.setInt(5, category_id);
             ps.setInt(6, quantity);
             ps.executeUpdate();
-        } catch (Exception e) {
-
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

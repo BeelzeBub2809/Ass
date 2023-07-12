@@ -7,6 +7,7 @@ package Controller;
 import DAL.AdminDAO;
 import DAL.ShopDAO;
 import java.io.IOException;
+import java.lang.*;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -18,6 +19,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Category;
 
 /**
@@ -82,7 +85,6 @@ public class CreateProdController extends HttpServlet {
         String imageName = file.getSubmittedFileName();
         String uploadPath = "C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/product/" + imageName;
         String archivePath = "product/" + imageName;
-        System.out.println(archivePath);
         try {
             FileOutputStream fos = new FileOutputStream(uploadPath);
             InputStream is = file.getInputStream();
@@ -93,15 +95,13 @@ public class CreateProdController extends HttpServlet {
         } catch (FileNotFoundException e) {
         }
         AdminDAO Adao = new AdminDAO();
-        Adao.insertProd(NameProd, InfoProd, PriceProd, archivePath, category, quantity);
-        response.sendRedirect(request.getContextPath()+"/admin");
+        try {
+            Adao.insertProd(NameProd, InfoProd, PriceProd, archivePath, category, quantity);
+        } catch (Exception ex) {
+            Logger.getLogger(CreateProdController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        response.sendRedirect("admin");
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";
