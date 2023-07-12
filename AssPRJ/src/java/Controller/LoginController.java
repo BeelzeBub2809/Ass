@@ -101,7 +101,13 @@ public class LoginController extends HttpServlet {
                 response.addCookie(Rem_CK);
 
             }
+            HttpSession ses = request.getSession();
+            Account ac = (Account) ses.getAttribute("AccSes");
+            if(ac.getPermission().equals("admin")){
+                response.sendRedirect("admin");
+            }else{
             response.sendRedirect("login");
+            }
         }
     }
 

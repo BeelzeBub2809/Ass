@@ -97,20 +97,21 @@ public class ShopDAO {
     }
 
     public void addPayment(String name, String address, String phone, String note, Account a, Cart cart) {
+
+        String query = "INSERT INTO [dbo].[User_payment]\n"
+                + "           ([Name]\n"
+                + "           ,[Address]\n"
+                + "           ,[Phone_num]\n"
+                + "           ,[Payment_type]\n"
+                + "           ,[User_id])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?)\n"
+                + "GO";
         try {
-            String query = "INSERT INTO [dbo].[User_payment]\n"
-                    + "           ([Name]\n"
-                    + "           ,[Address]\n"
-                    + "           ,[Phone_num]\n"
-                    + "           ,[Payment_type]\n"
-                    + "           ,[User_id])\n"
-                    + "     VALUES\n"
-                    + "           (?\n"
-                    + "           ,?\n"
-                    + "           ,?\n"
-                    + "           ,?\n"
-                    + "           ,?)\n"
-                    + "GO";
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, name);
@@ -127,7 +128,7 @@ public class ShopDAO {
             Connection conn2 = new DBContext().getConnection();
             PreparedStatement ps1 = conn2.prepareStatement(query2);
             rs = ps1.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 int Oid = rs.getInt("Id");
                 for (Items i : cart.getItems()) {
                     String query3 = "INSERT INTO [dbo].[order_detail]\n"
@@ -149,7 +150,7 @@ public class ShopDAO {
                             + "";
                     Connection conn3 = new DBContext().getConnection();
                     PreparedStatement ps2 = conn3.prepareStatement(query3);
-                    ps2.setInt(1, Oid);
+                    ps2.setInt(1, 2);
                     ps2.setInt(2, Oid);
                     ps2.setInt(3, i.getP().getId());
                     ps2.setInt(4, i.getQuantity());
@@ -168,5 +169,38 @@ public class ShopDAO {
             }
         } catch (Exception e) {
         }
+    }
+
+    public int getTotalProd() {
+        try {
+            String query = "SELECT COUNT(*) FROM Product";
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public List<Product> Paging(int index) {
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT * FROM Product "
+                + "ORDER BY Id "
+                + "OFFSET ? ROWS "
+                + "FETCH NEXT 7 ROWS ONLY";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, (index - 1) * 3);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8), rs.getInt(9)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
     }
 }
