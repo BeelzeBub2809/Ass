@@ -52,6 +52,14 @@
         <servlet-name>CreateProdController</servlet-name>
         <servlet-class>Controller.CreateProdController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteProdController</servlet-name>
+        <servlet-class>Controller.DeleteProdController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProdServlet</servlet-name>
+        <servlet-class>Controller.EditProdServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>CreateProdController</servlet-name>
         <url-pattern>/createProd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProdController</servlet-name>
+        <url-pattern>/deleteProd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProdServlet</servlet-name>
+        <url-pattern>/editProd</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

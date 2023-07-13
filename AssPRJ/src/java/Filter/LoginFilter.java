@@ -105,7 +105,6 @@ public class LoginFilter implements Filter {
         if (debug) {
             log("NewFilter:doFilter()");
         }
-        
         doBeforeProcessing(request, response);
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse= (HttpServletResponse) response;

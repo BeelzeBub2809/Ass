@@ -64,7 +64,7 @@
                                 <td>${lp.getName()}</td>
                                 <td>${lp.getPrice()}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm"href="editProd?ID=${lp.id}">Edit</a> | 
+                                    <a class="btn btn-primary btn-sm"href="edit?ID=${lp.id}">Edit</a> | 
                                     <a class="btn btn-danger btn-sm" href="#" onclick="Mess(${lp.id})">Del</a></td>
                             </tr>
                         </c:forEach>
