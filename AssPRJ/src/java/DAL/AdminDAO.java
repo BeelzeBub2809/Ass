@@ -13,6 +13,7 @@ import model.Account;
 import model.Cart;
 import model.Category;
 import model.Items;
+import model.Orders;
 import model.Product;
 
 public class AdminDAO {
@@ -183,5 +184,22 @@ public class AdminDAO {
         } catch (Exception e) {
 
         }
+    }
+
+    public List<Orders> getAllOrders() {
+        List<Orders> listO = new ArrayList<>();
+        String query = "SELECT * FROM User_payment \n"
+                + "INNER JOIN order_detail \n"
+                + "ON User_payment.Id = order_detail.Payment_id";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                listO.add(new Orders(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(8), rs.getInt(9), rs.getDouble(10), rs.getString(11)));
+            }
+        } catch (Exception e) {
+        }
+        return listO;
     }
 }

@@ -36,7 +36,7 @@
             <a href="account"><i class="fa fa-user"></i><span>Account</span></a>
             <a href="admin"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
             <a href="#"><i class="fa fa-sellsy"></i><span>Statistices</span></a>
-            <a href="#"><i class="fa fa-ban"></i><span>Ban Customers</span></a>
+            <a href="viewOrder"><i class="fa fa-ban"></i><span>Orders</span></a>
             <a href="#"><i class="fa fa-cog"></i><span>Setting</span></a>
 
         </div>

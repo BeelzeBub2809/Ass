@@ -32,39 +32,47 @@
         <div class="side-menu">
             <center> <img src="assets/image/OIP.jpg"> <br><br>
                 <h2>${sessionScope.AccSes.username}</h2>
-            </center> <br> <a href="account"><i class="fa fa-user"></i><span>Account</span></a>
-            <a href="admin"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
+            </center> <br> <a href="#"><i class="fa fa-user"></i><span>Customers</span></a>
+            <a href="#"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
             <a href="#"><i class="fa fa-sellsy"></i><span>Statistices</span></a>
-            <a href="viewOrder"><i class="fa fa-ban"></i><span>Orders</span></a>
+            <a href="#"><i class="fa fa-ban"></i><span>Orders</span></a>
             <a href="#"><i class="fa fa-cog"></i><span>Setting</span></a>
 
         </div>
         <div class="data" style="height: 0vh">
             <div class="container" style="padding-top: 9%;">
-                <h2><strong>List Product</strong></h2>
+                <h2><strong>List Order</strong></h2>
                 <p>
-                    <a class="btn btn-primary" href="createProd">Add Product</a>
+                    <a class="btn btn-primary" href="createProd">Add Order</a>
                 </p>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Photo</th>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Action</th>
+                            <th>Customer Name</th>
+                            <th>Customer Address</th>
+                            <th>Customer Phone</th>
+                            <th>Customer Payment type</th>
+                            <th>Product ID</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Note</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${requestScope.listP}" var="lp"> 
+                        <c:forEach items="${requestScope.listO}" var="lp"> 
                             <tr>
-                                <td width="100"><img src="${lp. getImage()}"width="80" height="70" alt=""/></td>
-
-                                <td>${lp.id}</td>
+                                <td>${lp.getId()}</td>
                                 <td>${lp.getName()}</td>
-                                <td>${lp.getPrice()}</td>
+                                <td>${lp.getAddress()}</td>
+                                <td>${lp.getPhone_num()}</td>
+                                <td>${lp.getPayment_type()}</td>
+                                <td>${lp.getProduct_id()}</td>
+                                <td>${lp.getQuantity()}</td>
+                                <td>${lp.getTotal()}</td>
+                                <td>${lp.getNote()}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm"href="editProd?ID=${lp.id}">Edit</a> | 
+                                    <a class="btn btn-primary btn-sm"href="edit?ID=${lp.id}">Edit</a> | 
                                     <a class="btn btn-danger btn-sm" href="#" onclick="Mess(${lp.id})">Del</a></td>
                             </tr>
                         </c:forEach>
@@ -75,13 +83,13 @@
                 </c:forEach>
             </div>
         </div>
-            <script>
-                function Mess(id){
-                    var option = confirm('Do you want to delete this Product');
-                    if(option === true){
-                        window.location.href="deleteProd?id="+id;
-                    }
+        <script>
+            function Mess(id) {
+                var option = confirm('Do you want to delete this Product');
+                if (option === true) {
+                    window.location.href = "deleteProd?id=" + id;
                 }
-            </script>
+            }
+        </script>
     </body>
 </html>

@@ -105,7 +105,8 @@ public class LoginController extends HttpServlet {
             Account ac = (Account) ses.getAttribute("AccSes");
             if(ac.getPermission().equals("admin") || ac.getPermission().equals("manager")){
                 response.sendRedirect("admin");
-            }else{
+            }
+            else{
             response.sendRedirect("login");
             }
         }
