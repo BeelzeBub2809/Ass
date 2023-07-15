@@ -103,7 +103,7 @@ public class LoginController extends HttpServlet {
             }
             HttpSession ses = request.getSession();
             Account ac = (Account) ses.getAttribute("AccSes");
-            if(ac.getPermission().equals("admin")){
+            if(ac.getPermission().equals("admin") || ac.getPermission().equals("manager")){
                 response.sendRedirect("admin");
             }else{
             response.sendRedirect("login");

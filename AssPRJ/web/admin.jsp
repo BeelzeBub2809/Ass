@@ -32,8 +32,8 @@
         <div class="side-menu">
             <center> <img src="assets/image/OIP.jpg"> <br><br>
                 <h2>${sessionScope.AccSes.username}</h2>
-            </center> <br> <a href="#"><i class="fa fa-user"></i><span>Customers</span></a>
-            <a href="#"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
+            </center> <br> <a href="account"><i class="fa fa-user"></i><span>Account</span></a>
+            <a href="admin"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
             <a href="#"><i class="fa fa-sellsy"></i><span>Statistices</span></a>
             <a href="#"><i class="fa fa-ban"></i><span>Ban Customers</span></a>
             <a href="#"><i class="fa fa-cog"></i><span>Setting</span></a>

@@ -60,6 +60,22 @@
         <servlet-name>EditProdServlet</servlet-name>
         <servlet-class>Controller.EditProdServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewAccountController</servlet-name>
+        <servlet-class>Controller.ViewAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddAccountController</servlet-name>
+        <servlet-class>Controller.AddAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditAccountController</servlet-name>
+        <servlet-class>Controller.EditAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccountController</servlet-name>
+        <servlet-class>Controller.DeleteAccountController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -111,6 +127,22 @@
     <servlet-mapping>
         <servlet-name>EditProdServlet</servlet-name>
         <url-pattern>/editProd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAccountController</servlet-name>
+        <url-pattern>/account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAccountController</servlet-name>
+        <url-pattern>/addAcc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountController</servlet-name>
+        <url-pattern>/editAcc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountController</servlet-name>
+        <url-pattern>/deleteAcc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

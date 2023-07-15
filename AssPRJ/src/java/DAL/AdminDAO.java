@@ -62,8 +62,6 @@ public class AdminDAO {
 
     }
 
-
-
     public void updateProd(String name, String info, double price, String image, int category_id, int quantity, int id) {
         String query = "UPDATE [dbo].[Product]\n"
                 + "   SET [Name] = ?\n"
@@ -99,17 +97,15 @@ public class AdminDAO {
             ps = conn.prepareStatement(query);
             ps.setString(1, id);
             rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return new Category(rs.getInt(1), rs.getString(2));
             }
         } catch (Exception e) {
         }
         return null;
     }
-    
-    
-    
-        public Account getUserById(String id) {
+
+    public Account getUserById(String id) {
         String query = "SELECT * FROM Users\n"
                 + "WHERE Id = ?";
         try {
@@ -117,7 +113,7 @@ public class AdminDAO {
             ps = conn.prepareStatement(query);
             ps.setString(1, id);
             rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
             }
         } catch (Exception e) {
@@ -125,6 +121,67 @@ public class AdminDAO {
         }
         return null;
     }
-        
-        
+
+    public List<Account> getAllAccount() {
+        List<Account> list = new ArrayList<>();
+        String query = "SELECT * FROM Users";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public void addAccount(String username, String password, String email, String permission) {
+        String query = "INSERT INTO Users\n"
+                + "VALUES(?, ?, ?, ?) ";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, email);
+            ps.setString(4, permission);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void updateAccount(String username, String password, String email, String permission, String id) {
+        String query = "UPDATE [dbo].[Users]\n"
+                + "   SET [Username] = ?\n"
+                + "      ,[Password] = ?\n"
+                + "      ,[Email] = ?\n"
+                + "      ,[Permission] = ?\n"
+                + " WHERE [Id] = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, email);
+            ps.setString(4, permission);
+            ps.setString(5, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void deleteAccount(String id) {
+        String query = "DELETE FROM Users\n"
+                + "WHERE Id = ?;";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+
+        }
+    }
 }

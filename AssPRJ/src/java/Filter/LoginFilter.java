@@ -113,7 +113,7 @@ public class LoginFilter implements Filter {
         if(url.startsWith("/admin")){
             Account acc = (Account)session.getAttribute("AccSes");
             if(acc!=null){
-                if(acc.getPermission().equals("admin")){
+                if(acc.getPermission().equals("admin") || acc.getPermission().equals("manager")){
                     chain.doFilter(request, response);
                 }else{
                     httpResponse.sendRedirect(httpRequest.getContextPath()+"/login");

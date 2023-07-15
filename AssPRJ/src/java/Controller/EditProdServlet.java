@@ -85,21 +85,23 @@ public class EditProdServlet extends HttpServlet {
         Product p = sdao.getProdById(id);
         String oldPath = p.getImage();
         Part file = request.getPart("image");
-        String imageName = file.getSubmittedFileName();
-        String uploadPath = request.getServletContext().getRealPath("/product") +"/"+imageName;
-        String archivePath = "product/" + imageName;
+        if (file.getSize() !=0) {
+            String imageName = file.getSubmittedFileName();
 
-        try {
-            FileOutputStream fos = new FileOutputStream(uploadPath);
-            InputStream is = file.getInputStream();
-            byte[] data = new byte[is.available()];
-            is.read(data);
-            fos.write(data);
-            fos.close();
-        } catch (FileNotFoundException e) {
+            String uploadPath = request.getServletContext().getRealPath("/product") + "/" + imageName;
+            String archivePath = "product/" + imageName;
 
-        }
-        if (imageName != null) {
+            try {
+                FileOutputStream fos = new FileOutputStream(uploadPath);
+                InputStream is = file.getInputStream();
+                byte[] data = new byte[is.available()];
+                is.read(data);
+                fos.write(data);
+                fos.close();
+            } catch (FileNotFoundException e) {
+
+            }
+
             AdminDAO dao = new AdminDAO();
             dao.updateProd(NameProd, InfoProd, PriceProd, archivePath, category, quantity, id_int);
         } else {

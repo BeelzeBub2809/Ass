@@ -13,6 +13,6 @@ import DAL.AdminDAO;
 public class Test {
     public static void main(String[] args) throws Exception {
         AdminDAO dao = new AdminDAO();
-        dao.insertProd("Tuan", "Tuan", 100, "product/Vet.jsp", 1, 1);
+        dao.addAccount("Tuan", "123456", "Taun@gmail.com", "user");
     }
 }

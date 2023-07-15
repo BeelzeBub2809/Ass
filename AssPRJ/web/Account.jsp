@@ -32,8 +32,9 @@
         <div class="side-menu">
             <center> <img src="assets/image/OIP.jpg"> <br><br>
                 <h2>${sessionScope.AccSes.username}</h2>
-            </center> <br> <a href="#"><i class="fa fa-user"></i><span>Customers</span></a>
-            <a href="#"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
+            </center> <br> 
+            <a href="account"><i class="fa fa-user"></i><span>Account</span></a>
+            <a href="admin"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
             <a href="#"><i class="fa fa-sellsy"></i><span>Statistices</span></a>
             <a href="#"><i class="fa fa-ban"></i><span>Ban Customers</span></a>
             <a href="#"><i class="fa fa-cog"></i><span>Setting</span></a>
@@ -41,32 +42,46 @@
         </div>
         <div class="data" style="height: 0vh">
             <div class="container" style="padding-top: 9%;">
-                <h2><strong>List Product</strong></h2>
-                <p>
-                    <a class="btn btn-primary" href="createProd">Add Product</a>
-                </p>
+                <c:set var="admin" value="admin"></c:set>
+                    <h2><strong>List Account</strong></h2>
+                <c:if test="${sessionScope.AccSes.getPermission() eq admin}">
+                    <p>
+                        <a class="btn btn-primary" href="addAcc">Add Account</a>
+                    </p>
+                </c:if>
                 <table class="table table-bordered">
+
                     <thead>
+
                         <tr>
-                            <th>Photo</th>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Action</th>
+                            <th>User Name</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>Permission</th>
+                                <c:if test="${sessionScope.AccSes.getPermission() eq admin}">
+                                <th>Action</th>
+                                </c:if>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${requestScope.listP}" var="lp"> 
-                            <tr>
-                                <td width="100"><img src="${lp. getImage()}"width="80" height="70" alt=""/></td>
 
-                                <td>${lp.id}</td>
-                                <td>${lp.getName()}</td>
-                                <td>${lp.getPrice()}</td>
-                                <td>
-                                    <a class="btn btn-primary btn-sm"href="edit?ID=${lp.id}">Edit</a> | 
-                                    <a class="btn btn-danger btn-sm" href="#" onclick="Mess(${lp.id})">Del</a></td>
-                            </tr>
+                        <c:forEach items="${requestScope.listA}" var="lp">
+                            <c:if test="${lp.getPermission() ne admin}">
+                                <tr>
+                                    <td>${lp.id}</td>
+                                    <td>${lp.getUsername()}</td>
+                                    <td>${lp.getPassword()}</td>
+                                    <td>${lp.getEmail()}</td>
+                                    <td>${lp.getPermission()}</td>
+                                    <c:if test="${sessionScope.AccSes.getPermission() eq admin}">
+                                        <td>
+                                            <a class="btn btn-primary btn-sm"href="editAcc?ID=${lp.id}">Edit</a> | 
+                                            <a class="btn btn-danger btn-sm" href="#" onclick="Mess(${lp.id})">Del</a>
+                                        </td>
+                                    </c:if>
+                                </tr>
+                            </c:if>
                         </c:forEach>
                     </tbody>
                 </table>
@@ -75,13 +90,13 @@
                 </c:forEach>
             </div>
         </div>
-            <script>
-                function Mess(id){
-                    var option = confirm('Do you want to delete this Product');
-                    if(option === true){
-                        window.location.href="deleteProd?id="+id;
-                    }
+        <script>
+            function Mess(id) {
+                var option = confirm('Do you want to delete this Account');
+                if (option === true) {
+                    window.location.href = "deleteAcc?id=" + id;
                 }
-            </script>
+            }
+        </script>
     </body>
 </html>
