@@ -64,7 +64,7 @@
                                    class="form-control" name="image" placeholder="Enter photo" ">
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="reset" class="btn btn-primary">Cancel</button>
+                        <a href="<%=request.getContextPath()%>/admin" class="btn btn-primary">Cancel</a>
                     </form>
                 </div>
             </div>

@@ -109,8 +109,8 @@ public class ShopDAO {
                 + "           ,?\n"
                 + "           ,?\n"
                 + "           ,?\n"
-                + "           ,?)\n"
-                + "GO";
+                + "           ,?)\n";
+
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -128,34 +128,31 @@ public class ShopDAO {
             Connection conn2 = new DBContext().getConnection();
             PreparedStatement ps1 = conn2.prepareStatement(query2);
             rs = ps1.executeQuery();
-            while (rs.next()) {
-                int Oid = rs.getInt("Id");
+            if (rs.next()) {
+                int Oid = rs.getInt(1);
+
                 for (Items i : cart.getItems()) {
-                    String query3 = "INSERT INTO [dbo].[order_detail]\n"
-                            + "           ([Id]\n"
-                            + "           ,[Payment_id]\n"
+                    String query3 = "INSERT INTO [dbo].[Order_detail]\n"
+                            + "           ([Payment_id]\n"
                             + "           ,[Product_id]\n"
                             + "           ,[Quantity]\n"
                             + "           ,[Total]\n"
-                            + "            ,[Note])\n"
+                            + "           ,[Note])\n"
                             + "     VALUES\n"
-                            + "           ?\n"
+                            + "           (?\n"
                             + "           ,?\n"
                             + "           ,?\n"
                             + "           ,?\n"
-                            + "           ,?\n"
-                            + "           ,?)\n"
-                            + "GO\n"
-                            + "\n"
-                            + "";
+                            + "           ,?)";
+
                     Connection conn3 = new DBContext().getConnection();
                     PreparedStatement ps2 = conn3.prepareStatement(query3);
-                    ps2.setInt(1, 2);
-                    ps2.setInt(2, Oid);
-                    ps2.setInt(3, i.getP().getId());
-                    ps2.setInt(4, i.getQuantity());
-                    ps2.setDouble(5, i.getPrice());
-                    ps2.setString(6, note);
+                    ps2.setInt(1, Oid);
+                    ps2.setInt(2, i.getP().getId());
+                    ps2.setInt(3, i.getQuantity());
+                    ps2.setDouble(4, i.getPrice());
+                    ps2.setString(5, note);
+                    ps2.executeUpdate();
                 }
             }
             //Cap nhat so luong sp trong db

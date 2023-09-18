@@ -5,6 +5,11 @@
 package Test;
 
 import DAL.AdminDAO;
+import DAL.ShopDAO;
+import java.util.List;
+import model.Account;
+import model.Cart;
+import model.Product;
 
 /**
  *
@@ -13,6 +18,11 @@ import DAL.AdminDAO;
 public class Test {
     public static void main(String[] args) throws Exception {
         AdminDAO dao = new AdminDAO();
-        dao.addAccount("Tuan", "123456", "Taun@gmail.com", "user");
+        Account acc = dao.getUserById("1");
+        ShopDAO Sdao = new ShopDAO();
+        List<Product> list = Sdao.getAllProduct();
+        Cart cart = new Cart("1:2.4:1", list);
+        Sdao.addPayment("tuan", "SaoDO", "0827014598", "Nothings", acc, cart);
+        
     }
 }

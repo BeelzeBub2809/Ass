@@ -32,8 +32,9 @@
         <div class="side-menu">
             <center> <img src="assets/image/OIP.jpg"> <br><br>
                 <h2>${sessionScope.AccSes.username}</h2>
-            </center> <br> <a href="#"><i class="fa fa-user"></i><span>Customers</span></a>
-            <a href="#"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
+            </center> <br>
+            <a href="account"><i class="fa fa-user"></i><span>Account</span></a>
+            <a href="admin"><i class="fa fa-shopping-basket" ></i><span>Products</span></a>
             <a href="#"><i class="fa fa-sellsy"></i><span>Statistices</span></a>
             <a href="#"><i class="fa fa-ban"></i><span>Orders</span></a>
             <a href="#"><i class="fa fa-cog"></i><span>Setting</span></a>
@@ -43,7 +44,7 @@
             <div class="container" style="padding-top: 9%;">
                 <h2><strong>List Order</strong></h2>
                 <p>
-                    <a class="btn btn-primary" href="createProd">Add Order</a>
+                    <a class="btn btn-primary" href="addOrders">Add Order</a>
                 </p>
                 <table class="table table-bordered">
                     <thead>
@@ -53,6 +54,7 @@
                             <th>Customer Address</th>
                             <th>Customer Phone</th>
                             <th>Customer Payment type</th>
+                            <th>Order ID</th>
                             <th>Product ID</th>
                             <th>Quantity</th>
                             <th>Total</th>
@@ -72,7 +74,7 @@
                                 <td>${lp.getTotal()}</td>
                                 <td>${lp.getNote()}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm"href="edit?ID=${lp.id}">Edit</a> | 
+                                    <a class="btn btn-primary btn-sm"href="editOrders?ID=${lp.id}">Edit</a> | 
                                     <a class="btn btn-danger btn-sm" href="#" onclick="Mess(${lp.id})">Del</a></td>
                             </tr>
                         </c:forEach>
@@ -85,9 +87,9 @@
         </div>
         <script>
             function Mess(id) {
-                var option = confirm('Do you want to delete this Product');
+                var option = confirm('Do you want to delete this Oders');
                 if (option === true) {
-                    window.location.href = "deleteProd?id=" + id;
+                    window.location.href = "deleteOrders?id=" + id;
                 }
             }
         </script>

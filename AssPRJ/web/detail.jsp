@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SideBar Menu</title>
         <link rel="stylesheet" type="text/css" href="assets/css/styledetail.css"/>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <style>
             html, body {
@@ -47,8 +48,15 @@
 
                                 <div class="mt-3">
                                 </div>
-                                <div class="buttons d-flex flex-row mt-5 gap-3"> <button class="btn btn-outline-dark">Buy
-                                        Now</button> <a href="buy?id=${requestScope.Prod.getId()}" class="btn btn-dark">Add Cart</a> </div>
+                                <c:if test="${requestScope.Prod.quantity > 0}">
+                                    <div class="buttons d-flex flex-row mt-5 gap-3"> 
+                                        <a href="buy?id=${requestScope.Prod.getId()}" class="btn btn-dark">Add Cart</a> 
+                                    </div>
+                                </c:if>
+
+                                <c:if test="${requestScope.Prod.getQuantity() <= 0}">
+                                    <h2><strong> Sold Out </strong></h2>
+                                </c:if>
                             </div>
                         </div>
                     </div>

@@ -96,6 +96,7 @@ public class CreateProdController extends HttpServlet {
         }
         AdminDAO Adao = new AdminDAO();
         try {
+            log("<<");
             Adao.insertProd(NameProd, InfoProd, PriceProd, archivePath, category, quantity);
         } catch (Exception ex) {
             Logger.getLogger(CreateProdController.class.getName()).log(Level.SEVERE, null, ex);

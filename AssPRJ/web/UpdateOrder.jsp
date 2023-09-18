@@ -1,5 +1,4 @@
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,50 +17,46 @@
             <div class="row"
                  style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 0 auto; padding: 20px;">
                 <div class="col-sm-12">
-
-                    <h2 class="myclass">AddProd</h2>
-                    <form action="createProd" method="post" enctype="multipart/form-data">
+                    <h2 class="myclass">Update Order</h2>
+                    <form action="addOrders" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Name</label> 
                             <input type="text" 
-                                   class="form-control" name="NameProd" placeholder="Enter name">
+                                   class="form-control" name="Name" placeholder="Enter name" value="">
                         </div>
 
                         <div class="form-group">
-                            <label>Info</label> 
+                            <label>Address</label> 
                             <input type="text" 
-                                   class="form-control" name="InfoProd" placeholder="Enter info product">
+                                   class="form-control" name="Address" placeholder="Enter address" value="">
                         </div>
 
                         <div class="form-group">
-                            <label>Price</label> 
+                            <label>Phone</label> 
                             <input type="text" 
-                                   class="form-control" name="PriceProd" placeholder="Price">
+                                   class="form-control" name="Phone" placeholder="Enter phone" value="">
                         </div>
 
                         <div class="form-group">
-                            <label for="cate">Choose a category</label>
-
-                            <select name="cate">
-                                <c:forEach items="${requestScope.listC}" var="l">
-                                <option value="${l.getId()}">${l.getName()}</option>
-                                </c:forEach>
-                            </select>
+                            <label>Note</label> 
+                            <input type="text" 
+                                   class="form-control" name="Note" placeholder="Enter note" value="">
                         </div>
+
+                        <div class="form-group">
+                            <label>Product Id</label> 
+                            <input type="number" 
+                                   class="form-control" name="Product_id" placeholder="Enter Product id" value="">
+                        </div>
+
                         <div class="form-group">
                             <label>Quantity</label> 
                             <input type="number" 
-                                   class="form-control" name="QuantityProd" placeholder="Price">
+                                   class="form-control" name="Quantity" placeholder="Enter Quantity" value="">
                         </div>
 
-                        <div class="form-group">
-                            <label>Photo</label> <br/>
-
-                            <input type="file" 
-                                   class="form-control" name="image" placeholder="Enter photo">
-                        </div>
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="<%=request.getContextPath()%>/admin" class="btn btn-primary">Cancel</a>
+                        <button type="reset" class="btn btn-primary">Cancel</button>
                     </form>
                 </div>
             </div>

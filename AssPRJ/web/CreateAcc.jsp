@@ -44,7 +44,7 @@
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="reset" class="btn btn-primary">Cancel</button>
+                        <a href="<%=request.getContextPath()%>/account" class="btn btn-primary">Cancel</a>
                     </form>
                 </div>
             </div>

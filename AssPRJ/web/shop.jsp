@@ -49,7 +49,9 @@
                 <c:forEach items="${listP}" var="p">
                     <div class="box">
                         <div class="icons">
+                            <c:if test="${p.getQuantity() > 0}">
                             <a href="buy?id=${p.getId()}" class="fas fa-shopping-cart"></a>
+                            </c:if>
                             <a href="detail?pid=${p.getId()}" class="fas fa-eye"></a>
                         </div>
                         <div class="image">

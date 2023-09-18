@@ -2,38 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/DAL/LoginSignupDAO.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/ProcessCartController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/LoginController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/DetailProdController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/BuyController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/signup.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/detail.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/LoadProdController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/LogoutController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/DAL/DBContext.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/model/Cart.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/CreateProdController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/EditProdServlet.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/model/Order.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/DeleteProdController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/shop.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/home.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/CheckOutController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/CheckOut.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/DAL/ShopDAO.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/admin.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Filter/LoginFilter.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/editprod.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/SignupController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/header.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/Account.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/CartController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/CategoryController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/web/cart.jsp</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/Controller/adminController.java</file>
-            <file>file:/C:/Users/nguye/Dropbox/PC/Desktop/ASS_PRJ301/Assignment/Ass/AssPRJ/src/java/model/Items.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
