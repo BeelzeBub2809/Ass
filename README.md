@@ -3,8 +3,8 @@
 This is a Web selling pet food and pet accessories.
 
 # Main Features
-User : Login, Signup, View Product, Add product to cart, Checkout
-Admin: CRUD Product, Manage Order, CRUD Account
+- User : Login, Signup, View Product, Add product to cart, Checkout
+- Admin: CRUD Product, Manage Order, CRUD Account
 
 # Built With
 - JavaOOP
